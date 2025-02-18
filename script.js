@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.cookie =
       name + '=' + value + ';expires=' + date.toUTCString() + ';path=/';
   }
-
   
   // 1. Get the value of the 'count' cookie
   // 2. If the cookie exists, increment the value and update the cookie
@@ -21,4 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // 4. Display the count on the webpage
 
   // your code here
+  let count = parseInt(getCookie('count')) || 0;
+
+  count++;
+
+  setCookie('count', count, 7);
+
+  let countDisplay = document.createElement('p');
+  countDisplay.textContent = `Page Load Count: ${count}`;
+  document.body.appendChild(countDisplay);
 });
